@@ -1,38 +1,598 @@
-.App {
-  text-align: center;
+:root {
+  --default-color: #f4faff;
+  --dark-color: #8ea4c6;
+  --purple-color: #a358f0;
+  --muted-purple: #d4b3f8;
+  --green-color: #03d55a;
+  --deepBlue-color: #4a3bdd;
+  --dark-green: #009e6c;
+  --badge-color: #ee336a;
+  --active-color: #dee2ff;
+
+  --linear-gradient-purple: linear-gradient(
+    to bottom right,
+    var(--purple-color),
+    var(--deepBlue-color)
+  );
+
+  --grey-color: #ececec;
+  --box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* reset */
+html {
+  font-size: 62.5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+::-webkit-scrollbar {
+  background: white;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #f4faff;
+  border-radius: 1rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+}
+
+/* reset */
+
+.button {
+  background: transparent;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* Header class */
+.header {
+  height: 10rem;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  background-color: var(--default-color);
+  /* padding:  0  2rem */
+}
+
+.logo-container {
+  height: 100%;
+  padding: 0 2rem;
+  max-width: 9rem;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid var(--grey-color);
+}
+
+.logo {
+  height: 5rem;
+  width: 5rem;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--purple-color),
+    var(--deepBlue-color)
+  );
+  border-radius: 1rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+}
+
+.logo img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.header-between {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.button-header {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--green-color),
+    var(--dark-green)
+  );
+  color: white;
+  box-shadow: var(--box-shadow);
+  align-self: center;
+  padding: 1.5rem 2rem;
+}
+
+.button-header span {
+  margin-left: 1rem;
+  background-color: white;
+  color: var(--green-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-small {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+.icon-large {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.jb {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+.avatar-section > * {
+  margin-right: 1rem;
+}
+
+.image-container {
+  height: 7.5rem;
+  width: 7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: relative;
+  border: 1px solid var(--grey-color);
+  margin-left: 1rem;
+}
+
+.image-avatar {
+  height: 6rem;
+  width: 6rem;
+  background: purple;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.online-icon {
+  position: absolute;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--green-color),
+    var(--dark-green)
+  );
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  bottom: 1rem;
+  right: 0.5rem;
+}
+
+.border-image {
+  border: 3px solid white;
+  box-shadow: var(--box-shadow);
+}
+
+.avatar-name {
+  color: var(--dark-color);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.icon-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+.icon-wrapper .icon-badge {
+  background-color: var(--badge-color);
+  padding: 0.4rem;
+  border-radius: 100%;
+  position: absolute;
+  top: -0.5rem;
+  box-shadow: var(--box-shadow);
+  right: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2.22px solid white;
+}
+
+/* sidbar */
+
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex: none;
+  min-height: 10rem;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 4rem; */
+  background: var(--default-color);
+  width: 9rem;
+  gap: 2rem;
+  border-right: 2px solid var(--grey-color);
+  border-top: 2px solid var(--grey-color);
+  padding: 2rem 0;
+}
+
+.sidebar-item {
+  color: var(--dark-color);
+  padding: 1.5rem;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  transition: 0.8s all ease;
+}
+
+.sidebar-item:hover {
+  background: white;
+  box-shadow: var(--box-shadow);
+  color: var(--purple-color);
+}
+
+.active {
+  background: white;
+  box-shadow: var(--box-shadow);
+  color: var(--purple-color);
+}
+
+/* leftpanel  */
+
+.content-class {
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 3rem;
+  width: 100%;
+  background-color: #d4e2f0;
+  width: 100%;
+}
+
+.left-panel {
+  width: 39rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: none;
+}
+
+.right-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Notificaiton */
+.notification-card {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--purple-color),
+    var(--deepBlue-color)
+  );
+  border-radius: 0.5rem;
+  padding: 2rem 2rem;
+  color: white;
+  min-height: 19rem;
+}
+
+.notification-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-card-header .icon {
+  color: white;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.notification-card-header h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.notification-card-subtitle {
+  color: white;
+  opacity: 0.6;
+  margin-top: 0.7rem;
+  font-weight: 500;
+}
+
+.notification-card-body {
+  margin-top: 2.5rem;
+}
+
+.notification-card-list {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.notification-card-list .tag {
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 100%;
+  background-color: orange;
+}
+
+.notification-card-list .subtitle {
+  padding-left: 1.6rem;
+  color: white;
+  opacity: 0.6;
+  border-left: 1px solid var(--muted-purple);
+}
+
+/* canceled visits */
+
+.canceled-visit {
+  background-image: linear-gradient(to bottom right, #f48a5f, #db554f);
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  color: white;
+  min-height: 23rem;
+}
+
+/* mapcontainer */
+
+.map-container {
+  height: 25rem;
+}
+
+.map-container img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Appointments */
+
+.appointment {
+  padding: 2rem;
+  border-radius: 0.6rem;
+  background-color: var(--default-color);
+}
+
+.appointment-header {
+  color: black !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.appointment-header-icon {
+  color: black !important;
+}
+
+.appointment-header-icon svg {
+  color: black;
+  fill: black;
+}
+
+.appointment-header h3 {
+  font-weight: bold;
+}
+
+.appointment .sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.appointment .sub-header .tab-pane {
+  display: flex;
+  gap: 2rem;
+}
+
+.tab-pane .tab-pane-item {
+  padding: 1rem 2.5rem;
+  border-radius: 4rem;
+
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.tab-pane-item.main {
+  background-image: var(--linear-gradient-purple);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.tab-pane-item.sub {
+  background-color: #dee2ff;
+  color: var(--deepBlue-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon-class {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-arrow {
+  padding: 0.3rem;
+  border-radius: 100%;
+
+  cursor: pointer;
+}
+
+.icon-arrow.main {
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+.icon-arrow.sub {
+  background-color: #dee2ff;
+  color: var(--deepBlue-color);
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  color: grey;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.appointment-body {
+  margin-top: 3rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.calendar {
+  border: none;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+/* appointmentcard */
+.appointment-card {
+  max-width: 25rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  min-height: 30rem;
+}
+
+.appointment-card-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.appointment-card-header h3 {
+  font-weight: 500;
+}
+.appointment-card-header p {
+  color: var(--dark-color);
+  margin-top: 0.4rem;
+}
+
+.appointment-card-body {
+  margin-top: 4rem;
+}
+
+.location {
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.location p {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.location-icon {
+  flex: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.location-icon.active {
+  color: var(--purple-color);
+  background-color: none;
+  box-shadow: none;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.location-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.appointment-card-footer {
+  margin-top: 5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.secondary-button {
+  display: flex;
+  align-items: center;
+  background-color: var(--active-color);
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  border-radius: 4rem;
+  gap: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.secondary-button span {
+  font-weight: 600;
+  color: var(--deepBlue-color);
+}
+
+.button-icon {
+  padding: 0.3rem;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-button.danger {
+  background-color: #ffdee5;
+}
+
+.secondary-button.danger span {
+  color: #ea2f2f;
+}
+
+.button-icon-small {
+  height: 1.4rem;
+  width: 1.4rem;
+  font-weight: bold;
+}
+
+.image-avatar.secondary {
+  height: 6rem;
+  width: 6rem;
 }
